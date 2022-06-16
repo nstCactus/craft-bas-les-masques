@@ -10,6 +10,7 @@
 
 namespace nstcactus\baslesmasques;
 
+use craft\base\Model;
 use nstcactus\baslesmasques\models\Settings;
 use nstcactus\baslesmasques\services\BasLesMasquesService;
 use nstcactus\baslesmasques\variables\BasLesMasquesVariable;
@@ -73,9 +74,9 @@ class Plugin extends BasePlugin
     }
 
     /**
-     * @return Settings
+     * @return ?Settings
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?Model
     {
         return new Settings();
     }

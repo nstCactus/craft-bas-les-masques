@@ -10,7 +10,10 @@
         "bas les masques",
         "impersonate",
         "impersonation",
-        "impersonating"
+        "impersonating",
+        "user",
+        "users",
+        "original-user"
     ],
     "support": {
         "docs": "https://github.com/nstCactus/craft-bas-les-masques/blob/master/README.md",
@@ -24,7 +27,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.6.0"
+        "craftcms/cms": "^4.0.0"
     },
     "autoload": {
         "psr-4": {

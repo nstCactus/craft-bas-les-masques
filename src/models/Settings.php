@@ -11,9 +11,9 @@ class Settings extends Model
      * ⚠️ Use with caution: if you hand someone an impersonation URL, they will be able to log as the user who created the impersonation URL!
      * @var bool
      */
-    public $enableStopImpersonationRoute = false;
+    public bool $enableStopImpersonationRoute = false;
 
-    public function rules()
+    public function rules(): array
     {
         return [
             ['enableStopImpersonationRoute', 'boolean'],
