@@ -17,9 +17,7 @@ use nstcactus\baslesmasques\variables\BasLesMasquesVariable;
 
 use Craft;
 use craft\base\Plugin as BasePlugin;
-use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
-use craft\events\RegisterUrlRulesEvent;
 
 use yii\base\Event;
 
@@ -39,24 +37,16 @@ class Plugin extends BasePlugin
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
         $this->set('service', BasLesMasquesService::class);
 
         Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'bas-les-masques-!/site';
-            }
-        );
-
-        Event::on(
             CraftVariable::class,
             CraftVariable::EVENT_INIT,
-            function (Event $event) {
+            static function (Event $event) {
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
                 $variable->set('basLesMasques', BasLesMasquesVariable::class);
